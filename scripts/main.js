@@ -25,12 +25,20 @@ new Vue({
 	            {title: "Shorts",price: 130},
 	            {title: "Pants",price: 200}
             ],
-			searchLine: ''
+			searchLine: '',
+			isVisibleCart: false,
+			hasnotFilterWorked: false,
 		}	
 	},
 
 	methods: {
-		
+		filterGoods(event){
+			console.log(this.searchLine);
+			this.filteredGoods = this.filteredGoods.filter(good => good.title == this.searchLine);
+			if (this.filteredGoods.length == 0) {
+				this.hasnotFilterWorked = true;
+			}
+		}
 	},
 
 });
