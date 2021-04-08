@@ -25,9 +25,9 @@ new Vue({
 	            {title: "Shorts",price: 130},
 	            {title: "Pants",price: 200}
             ],
-			searchLine: '',
 			isVisibleCart: false,
 			hasnotFilterWorked: false,
+
 		}	
 	},
 
@@ -41,4 +41,30 @@ new Vue({
 		}
 	},
 
+});
+
+Vue.component('header-search', {
+	props: ['filteredGoods'],
+	template: '<div class="header_search"><header-search-input></header-search-input><button class="search-button" type="button" v-on:click="filterGoods" >Search</button></div>',
+	data: function() {
+		return {
+			searchLine: '',
+			hasnotFilterWorked: false,
+		}
+	},
+	methods: {
+		filterGoods(event){
+			console.log(searchLine);
+			props.filteredGoods = props.filteredGoods.filter(good => good.title == searchLine);
+			if (props.filteredGoods.length == 0) {
+				hasnotFilterWorked = true;
+			}
+		}
+	}
+});
+
+Vue.component('header-search-input', {
+	props: ['searchLine'],
+	template: '<input type="text" :searchLine="searchLine" class="goods-search" v-on:input="searchLine = $event.target.value" v-bind:value="searchLine" />',
+	
 });

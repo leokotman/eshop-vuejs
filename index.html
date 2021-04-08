@@ -20,10 +20,7 @@
                 <span><a href="#">About us</a></span>
                 <span><a href="#">Contacts</a></span>
             </nav>
-            <div class="header_search">
-                <input type="text" class="goods-search" v-on:input='searchLine = $event.target.value' v-bind:value="searchLine" />
-                <button class="search-button" type="button" v-on:click="filterGoods" >Search</button>
-            </div>
+           <header-search :filteredGoods="filteredGoods"><header-search/>
             <div class="header_cart">
                 <button class="cart-button" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
