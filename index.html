@@ -20,7 +20,10 @@
                 <span><a href="#">About us</a></span>
                 <span><a href="#">Contacts</a></span>
             </nav>
-           <header-search :filtered-goods="filteredGoods" @filter-goods="filter-goods"></header-search>
+           <header-search
+            :filtered-goods="filteredGoods"
+            @filter-goods="filter-goods">
+           </header-search>
             <div class="header_cart">
                 <button class="cart-button" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -36,7 +39,7 @@
                 <div class="goods_item" v-for="good in filteredGoods">
                     <h3>{{ good.title }}</h3>
                     <p>{{ good.price }}</p>
-                    <button class="add_to_cart" type="button">Add to Cart</button>
+                    <add-to-cart></add-to-cart>
                 </div>
             </div>
             <aside class="promo">
@@ -50,6 +53,7 @@
         <footer></footer>
     </div>
 
+    <script src="scripts/add-to-cart-btn.js"></script>
     <script src="scripts/header-search.js"></script>
     <script src="scripts/main.js"></script>
     
